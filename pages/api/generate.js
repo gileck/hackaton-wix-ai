@@ -1,5 +1,4 @@
 import {buildResponse} from './logic'
-import { NextRequest, NextResponse } from 'next/server';
 
 function returnMockData() {
   return {
@@ -42,19 +41,12 @@ function returnMockData() {
     }
   }
 }
-export const config = {
-  runtime: 'edge',
-};
 export default async function (req, res) {
-
-  const value = await req.json();
-
-  // const value = req.body.value || '';
-
+  const value = req.body.value || '';
 
 
   if (value.trim().length === 0) {
-    return NextResponse.json({
+    res.status(400).json({
       error: {
         message: "Please enter a valid value",
       }
@@ -64,15 +56,15 @@ export default async function (req, res) {
 
   try {
     const result = await buildResponse(value)
-    return NextResponse.json({ result})
+    res.status(200).json({ result})
   } catch(error) {
     // Consider adjusting the error handling logic for your use case
     if (error.response) {
       console.error(error.response.status, error.response.data);
-      return NextResponse.json(error.response.data);
+      res.status(error.response.status).json(error.response.data);
     } else {
       console.error(`Error with OpenAI API request: ${error.message}`);
-      return NextResponse.json({
+      res.status(500).json({
         error: {
           message: 'An error occurred during your request.',
         }
