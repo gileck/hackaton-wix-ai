@@ -206,7 +206,7 @@ function ItemNoImage(props) {
                             </Typography>
                             <Typography variant="subtitle1" color="primary">
                                 {post.followups && post.followups.map(q => <div key={q}>
-                                    <div className='link' style={{color: '#8ab4f8', cursor: "pointer"}}>
+                                    <div onClick={onFollowupClick} className='link' style={{color: '#8ab4f8', cursor: "pointer"}}>
                                         {q}
                                     </div>
                                 </div>)}
@@ -238,7 +238,7 @@ function MediaCard({post, onFollowupClick}) {
                     <div style={{marginTop: '20px'}}>
                         <Typography variant="body3" color="text.secondary">
                             {post.followups && post.followups.map(q => <div key={q}>
-                                <div className='link' style={{color: '#8ab4f8', cursor: "pointer"}}>
+                                <div onClick={onFollowupClick} className='link' style={{color: '#8ab4f8', cursor: "pointer"}}>
                                     {q}
                                 </div>
                             </div>)}
