@@ -2,7 +2,7 @@ import openai from './openai'
 import { generateSectionTemplates, generateSectionContent } from "./prompts"
 import { library } from './library'
 
-const model = 'gpt-3.5-turbo'
+const model = 'text-davinci-003'
 const temperature = 0
 const max_tokens = 300
 
