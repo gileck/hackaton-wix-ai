@@ -146,7 +146,7 @@ function Display(props) {
         }}>
             {items ? items.map((item) => {
                 const Comp = CompsById[item.id]
-                return <div key={item.title}>
+                return <div key={item.title} style={{marginBottom: '10px'}}>
                     <Comp onFollowupClick={onFollowupClick} post={item}/>
                 </div>
             }) : ''}
