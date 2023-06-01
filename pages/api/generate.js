@@ -52,7 +52,7 @@ export default async function (req, res) {
 
 
   if (value.trim().length === 0) {
-    NextResponse.json({
+    return NextResponse.json({
       error: {
         message: "Please enter a valid value",
       }
@@ -62,15 +62,15 @@ export default async function (req, res) {
 
   try {
     const result = await buildResponse(value)
-    NextResponse.json({ result})
+    return NextResponse.json({ result})
   } catch(error) {
     // Consider adjusting the error handling logic for your use case
     if (error.response) {
       console.error(error.response.status, error.response.data);
-      NextResponse.json(error.response.data);
+      return NextResponse.json(error.response.data);
     } else {
       console.error(`Error with OpenAI API request: ${error.message}`);
-      NextResponse.json({
+      return NextResponse.json({
         error: {
           message: 'An error occurred during your request.',
         }
