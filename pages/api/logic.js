@@ -2,8 +2,8 @@ import openai from './openai'
 import { generateSectionTemplates, generateSectionContent } from "./prompts"
 import { library } from './library'
 
-const model = 'text-davinci-003'
-const temperature = 1
+const model = 'gpt-3.5-turbo'
+const temperature = 0
 const max_tokens = 300
 
 const getImage = async prompt => {
