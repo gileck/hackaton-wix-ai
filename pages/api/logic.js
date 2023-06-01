@@ -7,7 +7,7 @@ const temperature = 1
 const max_tokens = 300
 
 const getImage = async prompt => {
-    return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbkcw_fNur-TbaJ-9WnydDYnQcVDYwAqxBw63G0xnX&s'
+    // return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbkcw_fNur-TbaJ-9WnydDYnQcVDYwAqxBw63G0xnX&s'
     const response = await openai.createImage({
         prompt,
         n: 1,
