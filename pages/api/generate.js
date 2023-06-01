@@ -41,6 +41,9 @@ function returnMockData() {
     }
   }
 }
+export const config = {
+  runtime: 'edge',
+};
 export default async function (req, res) {
   const value = req.body.value || '';
 
