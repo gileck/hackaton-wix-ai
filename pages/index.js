@@ -189,7 +189,7 @@ function ItemWithImage(props) {
 }
 
 function ItemNoImage(props) {
-    const {post} = props;
+    const {post, onFollowupClick} = props;
 
 
     return (
