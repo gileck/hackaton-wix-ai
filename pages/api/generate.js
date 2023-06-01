@@ -47,7 +47,9 @@ export const config = {
 };
 export default async function (req, res) {
 
-  const value = req.body.value || '';
+  const value = await req.json();
+
+  // const value = req.body.value || '';
 
 
 
